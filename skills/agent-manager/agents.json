@@ -9,7 +9,14 @@
       "status": "active",
       "spawnedAt": "2026-03-11T04:07:14.234Z",
       "lastActive": 1773202034234,
-      "metadata": {}
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
     },
     "agent-1773202287103-h9xrbox1r": {
       "id": "agent-1773202287103-h9xrbox1r",
@@ -20,7 +27,14 @@
       "status": "active",
       "spawnedAt": "2026-03-11T04:11:27.103Z",
       "lastActive": 1773202287103,
-      "metadata": {}
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
     },
     "agent-1773202304006-pc2wztbl3": {
       "id": "agent-1773202304006-pc2wztbl3",
@@ -29,15 +43,22 @@
       "task": "report-analysis",
       "priority": 3,
       "status": "active",
-      "spawnedAt": "2026-03-11T04:11:44.006Z",
+      "spawnedAt": "2026-03-11T04:12:13.006Z",
       "lastActive": 1773202304006,
-      "metadata": {}
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
     }
   },
   "metrics": {
-    "spawnCount": 7,
+    "spawnCount": 6,
     "terminateCount": 3,
     "totalUptime": 0
   },
-  "lastSave": "2026-03-11T04:11:44.006Z"
+  "lastSave": "2026-03-11T04:16:01.840Z"
 }
