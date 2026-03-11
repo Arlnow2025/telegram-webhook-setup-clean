@@ -74,34 +74,17 @@ class NameGenerator {
     const lastName = this.getRandom(pool.lastNames);
     
     let fullName = `${firstName} ${lastName}`;
-    
-    // Add task-based modifier if relevant
-    const taskKeywords = Object.keys(TASK_MODIFIERS);
-    const matchedKeyword = taskKeywords.find(keyword => 
-      task.toLowerCase().includes(keyword)
-    );
-    
-    if (matchedKeyword) {
-      const modifier = TASK_MODIFIERS[matchedKeyword];
-      fullName = `${modifier} ${fullName}`;
+
+    // Add prefix based on role only (no task modifier in name)
+    let prefix = "";
+    if (role === "technical" || role === "analytical") {
+      prefix = task.includes("github") || task.includes("dojo") ? "Prof. " : "Dr. ";
+    } else if (role === "creative") {
+      const randomPrefix = this.getRandom(pool.prefixes) || "I Gusti";
+      prefix = randomPrefix + " ";
     }
-    
-    // Add prefix based on role and task
-    let prefix = '';
-    
-    if (role === 'technical' || role === 'analytical') {
-      if (task.includes('github') || task.includes('dojo')) {
-        prefix = 'Prof. ';
-      } else {
-        prefix = 'Dr. ';
-      }
-    } else if (role === 'creative') {
-      prefix = this.getRandom(pool.prefixes) || 'I Gusti';
-    }
-    
-    // Combine
+
     const finalName = prefix + fullName;
-    
     return finalName;
   }
 
