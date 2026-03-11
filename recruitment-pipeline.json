@@ -1,0 +1,67 @@
+{
+  "pipeline": {
+    "name": "Agent Recruitment Pipeline",
+    "version": "1.0",
+    "steps": [
+      {
+        "id": "validate_input",
+        "agent_role": "technical",
+        "task": "Validate job manifest JSON structure and required fields",
+        "output_schema": {
+          "valid": "boolean",
+          "errors": "array",
+          "normalized": "object"
+        }
+      },
+      {
+        "id": "assign_agent",
+        "agent_role": "analytical",
+        "task": "Determine optimal agent type based on job requirements",
+        "output_schema": {
+          "recommended_role": "string",
+          "reasoning": "string"
+        }
+      },
+      {
+        "id": "spawn_agent",
+        "agent_role": "technical",
+        "task": "Spawn new agent with Indonesian naming",
+        "output_schema": {
+          "agentId": "string",
+          "name": "string",
+          "status": "string"
+        }
+      },
+      {
+        "id": "execute_job",
+        "agent_role": "auto",
+        "task": "Process the job with spawned agent",
+        "output_schema": {
+          "success": "boolean",
+          "result": "any",
+          "duration_ms": "number"
+        }
+      },
+      {
+        "id": "validate_output",
+        "agent_role": "technical",
+        "task": "Validate job output format and completeness",
+        "output_schema": {
+          "valid": "boolean",
+          "errors": "array",
+          "output_quality": "string"
+        }
+      }
+    ]
+  },
+  "validation_rules": {
+    "required_job_fields": ["id", "name", "command", "scheduled", "status"],
+    "allowed_commands": ["dojo-train", "nmap-scan", "github-backup", "report", "content"],
+    "max_job_duration_minutes": 30,
+    "output_requirements": {
+      "technical": "clean_text",
+      "analytical": "json",
+      "creative": "markdown"
+    }
+  }
+}

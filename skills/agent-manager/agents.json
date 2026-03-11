@@ -1,14 +1,104 @@
 {
   "agents": {
-    "agent-1773204085434-yd3hfxixp": {
-      "id": "agent-1773204085434-yd3hfxixp",
+    "agent-1773205466417-gg0bsw0zh": {
+      "id": "agent-1773205466417-gg0bsw0zh",
       "role": "technical",
-      "name": "Dr. Surya Susilo",
-      "task": "test-safe-cleanup",
-      "priority": 3,
+      "name": "Prof. GitHub Yudi Hidayat",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
       "status": "active",
-      "spawnedAt": "2026-03-11T04:41:25.434Z",
-      "lastActive": 1773204085434,
+      "spawnedAt": "2026-03-11T05:04:26.417Z",
+      "lastActive": 1773205466417,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773205470952-i0mgclwhg": {
+      "id": "agent-1773205470952-i0mgclwhg",
+      "role": "technical",
+      "name": "Prof. GitHub Joko Prasetyo",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:04:30.952Z",
+      "lastActive": 1773205470952,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773205475662-t2z4ud5jt": {
+      "id": "agent-1773205475662-t2z4ud5jt",
+      "role": "technical",
+      "name": "Prof. GitHub Joko Setiawan",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:04:35.662Z",
+      "lastActive": 1773205475662,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773205540383-jfwlbl6mk": {
+      "id": "agent-1773205540383-jfwlbl6mk",
+      "role": "technical",
+      "name": "Prof. GitHub Rudi Prasetyo",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:05:40.383Z",
+      "lastActive": 1773205540384,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773205544877-hkjbilwvz": {
+      "id": "agent-1773205544877-hkjbilwvz",
+      "role": "technical",
+      "name": "Prof. GitHub Surya Hidayat",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:05:44.877Z",
+      "lastActive": 1773205544878,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773205549485-c12ub2z3w": {
+      "id": "agent-1773205549485-c12ub2z3w",
+      "role": "technical",
+      "name": "Prof. GitHub Surya Wibowo",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:05:49.485Z",
+      "lastActive": 1773205549485,
       "metadata": {},
       "instructions": [
         "Always return final answer directly",
@@ -20,9 +110,9 @@
     }
   },
   "metrics": {
-    "spawnCount": 5,
-    "terminateCount": 4,
+    "spawnCount": 16,
+    "terminateCount": 6,
     "totalUptime": 0
   },
-  "lastSave": "2026-03-11T04:41:25.434Z"
+  "lastSave": "2026-03-11T05:19:21.964Z"
 }

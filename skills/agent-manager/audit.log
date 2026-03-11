@@ -25,3 +25,86 @@
 {"timestamp":"2026-03-11T04:07:14.235Z","action":"spawn","details":{"agentId":"agent-1773202034234-wzaldzvpn","role":"technical","name":"Dr. Yudi Susilo","task":"pipeline-test"}}
 {"timestamp":"2026-03-11T04:11:27.103Z","action":"spawn","details":{"agentId":"agent-1773202287103-h9xrbox1r","role":"technical","name":"Dr. Sandi Hidayat","task":"pipeline-test"}}
 {"timestamp":"2026-03-11T04:11:44.006Z","action":"spawn","details":{"agentId":"agent-1773202304006-pc2wztbl3","role":"analytical","name":"Dr. Report Sri Wulandari","task":"report-analysis"}}
+{"timestamp":"2026-03-11T04:40:00.261Z","action":"spawn","details":{"agentId":"agent-1773204000260-4xhjwd81k","role":"technical","name":"Dr. Yudi Suryanto","task":"fix-server"}}
+{"timestamp":"2026-03-11T04:41:25.435Z","action":"spawn","details":{"agentId":"agent-1773204085434-yd3hfxixp","role":"technical","name":"Dr. Surya Susilo","task":"test-safe-cleanup"}}
+{"timestamp":"2026-03-11T04:44:24.459Z","action":"spawn","details":{"agentId":"agent-1773204264458-y2b0a37xt","role":"technical","name":"Dr. Ahmad Setiawan","task":"validate JSON output from recruitment pipeline"}}
+{"timestamp":"2026-03-11T04:55:01.107Z","action":"auto-terminate","details":{"agentId":"agent-1773204000260-4xhjwd81k","reason":"idle timeout"}}
+{"timestamp":"2026-03-11T04:55:09.032Z","action":"auto-terminate","details":{"agentId":"agent-1773204000260-4xhjwd81k","reason":"idle timeout"}}
+{"timestamp":"2026-03-11T04:55:10.964Z","action":"auto-terminate","details":{"agentId":"agent-1773204000260-4xhjwd81k","reason":"idle timeout"}}
+{"timestamp":"2026-03-11T04:55:22.604Z","action":"spawn","details":{"agentId":"agent-1773204922603-ajzi4xl8u","role":"technical","name":"Dr. Joko Setiawan","task":"test-cli"}}
+{"timestamp":"2026-03-11T04:55:43.771Z","action":"spawn","details":{"agentId":"agent-1773204943770-pddrwepdo","role":"technical","name":"Dr. Eko Susilo","task":"test"}}
+{"timestamp":"2026-03-11T04:56:26.244Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:26.244Z"}}
+{"timestamp":"2026-03-11T04:56:27.051Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:27.051Z"}}
+{"timestamp":"2026-03-11T04:56:32.148Z","action":"spawn","details":{"agentId":"agent-1773204992147-mqkv4mh30","role":"technical","name":"Dr. Eko Setiawan","task":"test"}}
+{"timestamp":"2026-03-11T04:56:34.080Z","action":"spawn","details":{"agentId":"agent-1773204994079-bzvadks59","role":"technical","name":"Dr. Dwi Pratama","task":"test"}}
+{"timestamp":"2026-03-11T04:56:38.778Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:38.777Z"}}
+{"timestamp":"2026-03-11T04:56:50.244Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:50.244Z"}}
+{"timestamp":"2026-03-11T04:56:52.149Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:52.149Z"}}
+{"timestamp":"2026-03-11T04:56:55.138Z","action":"auto-terminate","details":{"agentId":"agent-1773204085434-yd3hfxixp","reason":"idle timeout","timestamp":"2026-03-11T04:56:55.138Z"}}
+{"timestamp":"2026-03-11T04:57:41.287Z","action":"spawn","details":{"agentId":"agent-1773205061285-tthgavq2l","role":"technical","name":"Dr. Joko Pratama","task":"test"}}
+{"timestamp":"2026-03-11T04:58:06.366Z","action":"spawn","details":{"agentId":"agent-1773205086365-hliurpn68","role":"technical","name":"Dr. Ahmad Hakim","task":"test"}}
+{"timestamp":"2026-03-11T04:58:31.630Z","action":"spawn","details":{"agentId":"agent-1773205111629-ewyc6tau2","role":"analytical","name":"Dr. Wati Susanti","task":"test"}}
+{"timestamp":"2026-03-11T04:58:44.540Z","action":"spawn","details":{"agentId":"agent-1773205124540-oew965sua","role":"creative","name":"I PutuWayan Surya","task":"test"}}
+{"timestamp":"2026-03-11T05:04:16.938Z","action":"spawn","details":{"agentId":"agent-1773205456937-vgfn2rxnr","role":"technical","name":"Prof. GitHub Rudi Hidayat","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:04:21.606Z","action":"spawn","details":{"agentId":"agent-1773205461606-e1ftooy8t","role":"technical","name":"Prof. GitHub Agus Rahman","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:04:26.418Z","action":"spawn","details":{"agentId":"agent-1773205466417-gg0bsw0zh","role":"technical","name":"Prof. GitHub Yudi Hidayat","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:04:30.953Z","action":"spawn","details":{"agentId":"agent-1773205470952-i0mgclwhg","role":"technical","name":"Prof. GitHub Joko Prasetyo","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:04:35.663Z","action":"spawn","details":{"agentId":"agent-1773205475662-t2z4ud5jt","role":"technical","name":"Prof. GitHub Joko Setiawan","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:04:46.910Z","action":"auto-terminate","details":{"agentId":"agent-1773204264458-y2b0a37xt","reason":"idle timeout","timestamp":"2026-03-11T05:04:46.910Z"}}
+{"timestamp":"2026-03-11T05:04:51.579Z","action":"auto-terminate","details":{"agentId":"agent-1773204264458-y2b0a37xt","reason":"idle timeout","timestamp":"2026-03-11T05:04:51.579Z"}}
+{"timestamp":"2026-03-11T05:04:56.374Z","action":"auto-terminate","details":{"agentId":"agent-1773204264458-y2b0a37xt","reason":"idle timeout","timestamp":"2026-03-11T05:04:56.374Z"}}
+{"timestamp":"2026-03-11T05:05:00.928Z","action":"auto-terminate","details":{"agentId":"agent-1773204264458-y2b0a37xt","reason":"idle timeout","timestamp":"2026-03-11T05:05:00.928Z"}}
+{"timestamp":"2026-03-11T05:05:05.646Z","action":"auto-terminate","details":{"agentId":"agent-1773204264458-y2b0a37xt","reason":"idle timeout","timestamp":"2026-03-11T05:05:05.646Z"}}
+{"timestamp":"2026-03-11T05:05:40.384Z","action":"spawn","details":{"agentId":"agent-1773205540383-jfwlbl6mk","role":"technical","name":"Prof. GitHub Rudi Prasetyo","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:05:44.878Z","action":"spawn","details":{"agentId":"agent-1773205544877-hkjbilwvz","role":"technical","name":"Prof. GitHub Surya Hidayat","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:05:49.486Z","action":"spawn","details":{"agentId":"agent-1773205549485-c12ub2z3w","role":"technical","name":"Prof. GitHub Surya Wibowo","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:09:22.222Z","action":"terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:23.814Z","action":"terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:25.367Z","action":"terminate","details":{"agentId":"agent-1773205456937-vgfn2rxnr","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:26.872Z","action":"terminate","details":{"agentId":"agent-1773205461606-e1ftooy8t","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:28.445Z","action":"terminate","details":{"agentId":"agent-1773205466417-gg0bsw0zh","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:29.915Z","action":"terminate","details":{"agentId":"agent-1773205470952-i0mgclwhg","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:31.429Z","action":"terminate","details":{"agentId":"agent-1773205475662-t2z4ud5jt","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:33.124Z","action":"terminate","details":{"agentId":"agent-1773205540383-jfwlbl6mk","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:34.723Z","action":"terminate","details":{"agentId":"agent-1773205544877-hkjbilwvz","reason":"manual"}}
+{"timestamp":"2026-03-11T05:09:36.445Z","action":"terminate","details":{"agentId":"agent-1773205549485-c12ub2z3w","reason":"manual"}}
+{"timestamp":"2026-03-11T05:11:36.025Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:36.025Z"}}
+{"timestamp":"2026-03-11T05:11:36.025Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:36.025Z"}}
+{"timestamp":"2026-03-11T05:11:37.487Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:37.487Z"}}
+{"timestamp":"2026-03-11T05:11:37.487Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:37.487Z"}}
+{"timestamp":"2026-03-11T05:11:40.692Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.692Z"}}
+{"timestamp":"2026-03-11T05:11:40.692Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.692Z"}}
+{"timestamp":"2026-03-11T05:11:40.707Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.707Z"}}
+{"timestamp":"2026-03-11T05:11:40.707Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.707Z"}}
+{"timestamp":"2026-03-11T05:11:40.957Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.957Z"}}
+{"timestamp":"2026-03-11T05:11:40.957Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:40.957Z"}}
+{"timestamp":"2026-03-11T05:11:44.346Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:44.346Z"}}
+{"timestamp":"2026-03-11T05:11:44.346Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:44.346Z"}}
+{"timestamp":"2026-03-11T05:11:45.173Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:45.173Z"}}
+{"timestamp":"2026-03-11T05:11:45.173Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:45.173Z"}}
+{"timestamp":"2026-03-11T05:11:47.322Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:47.322Z"}}
+{"timestamp":"2026-03-11T05:11:47.322Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:47.322Z"}}
+{"timestamp":"2026-03-11T05:11:47.898Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:47.898Z"}}
+{"timestamp":"2026-03-11T05:11:47.898Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:47.898Z"}}
+{"timestamp":"2026-03-11T05:11:49.782Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:49.782Z"}}
+{"timestamp":"2026-03-11T05:11:49.782Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:49.782Z"}}
+{"timestamp":"2026-03-11T05:11:51.519Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:51.519Z"}}
+{"timestamp":"2026-03-11T05:11:51.520Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:51.520Z"}}
+{"timestamp":"2026-03-11T05:11:51.983Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:51.983Z"}}
+{"timestamp":"2026-03-11T05:11:51.983Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:51.983Z"}}
+{"timestamp":"2026-03-11T05:11:52.312Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:52.312Z"}}
+{"timestamp":"2026-03-11T05:11:54.303Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:54.303Z"}}
+{"timestamp":"2026-03-11T05:11:54.303Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:54.303Z"}}
+{"timestamp":"2026-03-11T05:11:55.043Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:55.043Z"}}
+{"timestamp":"2026-03-11T05:11:55.043Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:55.043Z"}}
+{"timestamp":"2026-03-11T05:11:56.786Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:56.786Z"}}
+{"timestamp":"2026-03-11T05:11:56.786Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:56.786Z"}}
+{"timestamp":"2026-03-11T05:11:57.758Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:11:57.758Z"}}
+{"timestamp":"2026-03-11T05:11:57.758Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:11:57.758Z"}}
+{"timestamp":"2026-03-11T05:12:01.316Z","action":"auto-terminate","details":{"agentId":"agent-1773204992147-mqkv4mh30","reason":"idle timeout","timestamp":"2026-03-11T05:12:01.316Z"}}
+{"timestamp":"2026-03-11T05:12:01.316Z","action":"auto-terminate","details":{"agentId":"agent-1773204994079-bzvadks59","reason":"idle timeout","timestamp":"2026-03-11T05:12:01.316Z"}}
+{"timestamp":"2026-03-11T05:17:40.884Z","action":"spawn","details":{"agentId":"agent-1773206260883-i1ji2vrng","role":"technical","name":"Prof. GitHub Joko Wibowo","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:19:18.348Z","action":"auto-terminate","details":{"agentId":"agent-1773205456937-vgfn2rxnr","reason":"idle timeout","timestamp":"2026-03-11T05:19:18.348Z"}}
+{"timestamp":"2026-03-11T05:19:20.205Z","action":"auto-terminate","details":{"agentId":"agent-1773205456937-vgfn2rxnr","reason":"idle timeout","timestamp":"2026-03-11T05:19:20.205Z"}}
+{"timestamp":"2026-03-11T05:19:21.963Z","action":"auto-terminate","details":{"agentId":"agent-1773205456937-vgfn2rxnr","reason":"idle timeout","timestamp":"2026-03-11T05:19:21.963Z"}}
+{"timestamp":"2026-03-11T05:19:21.963Z","action":"auto-terminate","details":{"agentId":"agent-1773205461606-e1ftooy8t","reason":"idle timeout","timestamp":"2026-03-11T05:19:21.963Z"}}
