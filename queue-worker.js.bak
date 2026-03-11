@@ -5,19 +5,14 @@ const { exec } = require('child_process');
 const { v4: uuidv4 } = require('uuid');
 
 // Try to import MCP and OpenClaw modules
-let mcporter = null;
-let sessions_send = null;
-
-async function initMCP() {
-  try {
-    const m = await import("mcporter");
-    mcporter = m;
-    console.log("✅ mcporter loaded:", Object.keys(m));
-  } catch (err) {
-    console.warn("⚠️ mcporter not available:", err.message);
-    mcporter = null;
-  }
-}
+let mcporter, sessions_send;
+try {
+  ({ mcporter } = require('mcporter'));
+  ({ sessions_send } = require('openclaw'));
+} catch (e) {
+  console.warn('MCP/OpenClaw modules not available, running in standalone mode');
+  mcporter = null;
+  sessions_send = null;
 }
 
 // Queue directories
