@@ -66,19 +66,39 @@ function logAudit(action, details) {
 function cleanupIdleAgents() {
   const now = Date.now();
   let cleaned = 0;
-  
+
+  // Kumpulkan dulu, baru delete (aman untuk Map iteration)
+  const toClean = [];
   for (const [id, agent] of agents) {
-    if (agent.status === 'active' && (now - agent.lastActive) > CONFIG.AGENT_TIMEOUT_MS) {
-      agents.delete(id);
-      cleaned++;
-      logAudit('auto-terminate', { agentId: id, reason: 'idle timeout' });
+    // Hanya agent active yang idle (tidak sedang busy)
+    const isIdle = agent.status === 'active';
+    const isTimedOut = (now - agent.lastActive) > CONFIG.AGENT_TIMEOUT_MS;
+
+    if (isIdle && isTimedOut) {
+      toClean.push(id);
     }
   }
-  
+
+  // Hapus & log
+  for (const id of toClean) {
+    agents.delete(id);
+    cleaned++;
+    logAudit('auto-terminate', {
+      agentId: id,
+      reason: 'idle timeout',
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  // Simpan state dengan error handling
   if (cleaned > 0) {
     console.log(`[AgentManager] Cleaned up ${cleaned} idle agents`);
-    saveState();
-    metrics.terminateCount += cleaned;
+    try {
+      saveState();
+      metrics.terminateCount += cleaned;
+    } catch (err) {
+      console.error('[AgentManager] Failed to save state after cleanup:', err);
+    }
   }
 }
 
