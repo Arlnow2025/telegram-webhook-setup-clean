@@ -5,47 +5,20 @@ const { exec } = require('child_process');
 const { v4: uuidv4 } = require('uuid');
 
 // Try to import MCP and OpenClaw modules
+let mcporter = null;
 let sessions_send = null;
 
-// CLI wrapper for mcporter (since module has export issues)
-const mcporter = {
-  call: function(tool, args) {
-    const { execSync } = require('child_process');
-    const maxRetries = 2;
-    let lastError;
-    
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const mcporterPath = '/root/.nvm/versions/node/v22.22.0/bin/mcporter';
-        const cmd = `${mcporterPath} call ${tool} --args '${JSON.stringify(args)}'`;
-        console.log(`[MCP] Attempt ${attempt}: ${cmd}`);
-        const out = execSync(cmd, {
-          encoding: 'utf8',
-          timeout: 60000,
-          maxBuffer: 10 * 1024 * 1024
-        }).trim();
-        
-        if (!out) throw new Error('Empty response from mcporter');
-        
-        try {
-          return JSON.parse(out);
-        } catch(e) {
-          throw new Error(`JSON parse failed: ${e.message}\nOutput: ${out.substring(0, 200)}...`);
-        }
-      } catch(e) {
-        lastError = e;
-        console.error(`[MCP] Attempt ${attempt} failed: ${e.message}`);
-        if (e.code === 'ETIMEDOUT' && attempt < maxRetries) {
-          console.log(`[MCP] Retrying in 2s...`);
-          Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 2000);
-        } else {
-          break;
-        }
-      }
-    }
-    throw new Error(`mcporter failed after ${maxRetries} attempts: ${lastError.message}`);
+async function initMCP() {
+  try {
+    const m = await import("mcporter");
+    mcporter = m;
+    console.log("✅ mcporter loaded:", Object.keys(m));
+  } catch (err) {
+    console.warn("⚠️ mcporter not available:", err.message);
+    mcporter = null;
   }
-};
+}
+}
 
 // Queue directories
 const QUEUE_DIR = '/root/.openclaw/queue';
@@ -73,14 +46,16 @@ class QueueWorker {
   async start() {
     console.log('🔄 Starting Queue Worker...');
     
-    // Initialize Agent Manager using CLI wrapper
-    try {
-      const testResponse = mcporter.call('agent-manager.agent_pool_status', {});
-      this.agentManagerReady = true;
-      console.log('🔧 Agent Manager initialized:', JSON.stringify(testResponse, null, 2));
-    } catch (error) {
-      console.error('❌ Failed to initialize Agent Manager:', error.message);
-      this.agentManagerReady = false;
+    // Initialize Agent Manager
+    if (mcporter) {
+      try {
+        const testResponse = await mcporter.call('agent-manager.agent_pool_status', {});
+        this.agentManagerReady = true;
+        console.log('🔧 Agent Manager initialized:', JSON.stringify(testResponse, null, 2));
+      } catch (error) {
+        console.error('❌ Failed to initialize Agent Manager:', error.message);
+        this.agentManagerReady = false;
+      }
     }
 
     // Initial check
@@ -170,26 +145,9 @@ class QueueWorker {
   async processJobFile(jobFile) {
     try {
       const job = this.parseJobFile(jobFile);
+      const jobCommand = job.command.join(' ');
       const jobId = job.id;
       
-      // Prevent duplicate processing if already running
-      if (this.runningAgents.has(jobId)) {
-        console.log(`⏭️ Skipping job ${jobId} - already processing with agent ${this.runningAgents.get(jobId).agentName}`);
-        return;
-      }
-
-      // Move to processing/ immediately to avoid race condition
-      const processingFile = path.join(PROCESSING_DIR, path.basename(jobFile));
-      if (jobFile !== processingFile) {
-        try {
-          fs.renameSync(jobFile, processingFile);
-          console.log(`📁 Moved ${jobId} to processing/`);
-        } catch (e) {
-          console.warn(`Failed to move to processing/: ${e.message}`);
-        }
-      }
-
-      const jobCommand = job.command.join(' ');
       console.log(`🔄 Processing job: ${job.name} (${jobId})`);
 
       // Determine agent role based on job command
@@ -199,23 +157,21 @@ class QueueWorker {
       let agentResponse;
       
       try {
-        // Cek pool dulu sebelum spawn
-        const poolStatus = mcporter.call('agent-manager.agent_pool_status', {});
-        const idleAgent = poolStatus.agents &&
-        poolStatus.agents.find(a => a.role === role && a.status === 'active');
-        if (idleAgent) {
-          console.log(`♻️ Reusing agent: ${idleAgent.name} (${role})`);
-          agentResponse = idleAgent;
-        } else if (poolStatus.count < 8) {
-          agentResponse = mcporter.call('agent-manager.agent_spawn', {
+        if (mcporter) {
+          agentResponse = await mcporter.call('agent-manager.agent_spawn', {
             role: role,
             task: jobCommand,
             priority: '2'
           });
         } else {
-          console.warn('⚠️ Agent pool full, waiting...');
-          await new Promise(r => setTimeout(r, 5000));
-          return;
+          // Fallback to CLI
+          const cliCommand = `mcporter call agent-manager.agent_spawn --args '{"role":"${role}","task":"${jobCommand}","priority":"2"}'`;
+          const { stdout, stderr } = await this.execPromise(cliCommand);
+          if (stderr) {
+            console.error(`CLI MCP error: ${stderr}`);
+            throw new Error('MCP connection failed');
+          }
+          agentResponse = JSON.parse(stdout);
         }
       } catch (error) {
         console.error(`❌ MCP error: ${error.message}`);
@@ -228,7 +184,7 @@ class QueueWorker {
       const agentName = agentResponse.name;
       
       // Log agent creation
-      this.runningAgents.set(jobId, { agentId, status: 'processing', agentName, startTime: Date.now() });
+      this.runningAgents.set(jobId, { agentId, status: 'processing', agentName });
       
       console.log(`🤖 Spawned agent: ${agentName} (${role}) for job: ${job.name}`);
       
@@ -319,22 +275,10 @@ class QueueWorker {
 
   async updateQueueStatus(jobId, status, result) {
     try {
-      // Cek di pending/ dulu
-      let jobFile = path.join(PENDING_DIR, jobId + '.yaml');
-      let sourceDir = PENDING_DIR;
-      
-      // Jika tidak ada di pending/, maybe sedang diproses atau sudah dipindah
+      const jobFile = path.join(PENDING_DIR, jobId + '.yaml');
       if (!fs.existsSync(jobFile)) {
-        // Cek di processing/ (sudah dipindah tapi belum selesai)
-        const processingFile = path.join(PROCESSING_DIR, jobId + '.yaml');
-        if (fs.existsSync(processingFile)) {
-          console.log(`⚠️ Job ${jobId} found in processing/, moving to ${status}`);
-          jobFile = processingFile;
-          sourceDir = PROCESSING_DIR;
-        } else {
-          console.warn(`Job file not found in pending/ or processing/: ${jobId}`);
-          return; // Sudah dipindah oleh thread lain
-        }
+        console.warn(`Job file not found: ${jobFile}`);
+        return;
       }
 
       const job = this.parseJobFile(jobFile);
@@ -346,14 +290,12 @@ class QueueWorker {
       const targetDir = status === 'completed' ? COMPLETED_DIR : FAILED_DIR;
       const targetFile = path.join(targetDir, jobId + '.yaml');
 
-      // Write atomically: write to temp then rename
-      const tempFile = targetFile + '.tmp';
-      fs.writeFileSync(tempFile, this.formatJobFile(job));
-      fs.renameSync(tempFile, targetFile);
-
-      // Remove from source (pending/ atau processing/)
+      // Write updated job
+      fs.writeFileSync(targetFile, this.formatJobFile(job));
+      
+      // Remove from pending
       fs.unlinkSync(jobFile);
-
+      
       console.log(`📝 Job ${jobId} marked as ${status}`);
     } catch (error) {
       console.error(`Failed to update job status for ${jobId}:`, error.message);
