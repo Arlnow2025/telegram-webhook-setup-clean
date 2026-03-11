@@ -17,12 +17,48 @@
         "Output must be clean text or valid JSON only"
       ],
       "output_format": "clean_text"
+    },
+    "agent-1773207273302-blwu6dhow": {
+      "id": "agent-1773207273302-blwu6dhow",
+      "role": "technical",
+      "name": "Prof. GitHub Dwi Suryanto",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:34:33.302Z",
+      "lastActive": 1773207273302,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
+    },
+    "agent-1773207275153-4he2i9lof": {
+      "id": "agent-1773207275153-4he2i9lof",
+      "role": "technical",
+      "name": "Prof. GitHub Yudi Prasetyo",
+      "task": "dojo-train:github-issue-triage",
+      "priority": "2",
+      "status": "active",
+      "spawnedAt": "2026-03-11T05:34:35.153Z",
+      "lastActive": 1773207275154,
+      "metadata": {},
+      "instructions": [
+        "Always return final answer directly",
+        "Never output raw XML or tool_call tags",
+        "If unsure, ask for clarification",
+        "Output must be clean text or valid JSON only"
+      ],
+      "output_format": "clean_text"
     }
   },
   "metrics": {
-    "spawnCount": 17,
+    "spawnCount": 19,
     "terminateCount": 13,
     "totalUptime": 0
   },
-  "lastSave": "2026-03-11T05:30:33.386Z"
+  "lastSave": "2026-03-11T05:34:35.154Z"
 }

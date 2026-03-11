@@ -179,3 +179,5 @@
 {"timestamp":"2026-03-11T05:21:03.738Z","action":"auto-terminate","details":{"agentId":"agent-1773205549485-c12ub2z3w","reason":"idle timeout","timestamp":"2026-03-11T05:21:03.738Z"}}
 {"timestamp":"2026-03-11T05:21:05.338Z","action":"auto-terminate","details":{"agentId":"agent-1773205549485-c12ub2z3w","reason":"idle timeout","timestamp":"2026-03-11T05:21:05.338Z"}}
 {"timestamp":"2026-03-11T05:30:33.387Z","action":"spawn","details":{"agentId":"agent-1773207033386-c8i0caol1","role":"technical","name":"Dr. Eko Santoso","task":"test"}}
+{"timestamp":"2026-03-11T05:34:33.303Z","action":"spawn","details":{"agentId":"agent-1773207273302-blwu6dhow","role":"technical","name":"Prof. GitHub Dwi Suryanto","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T05:34:35.154Z","action":"spawn","details":{"agentId":"agent-1773207275153-4he2i9lof","role":"technical","name":"Prof. GitHub Yudi Prasetyo","task":"dojo-train:github-issue-triage"}}
