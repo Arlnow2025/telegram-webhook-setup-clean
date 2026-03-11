@@ -1,0 +1,5 @@
+agent_timeout_ms: 900000
+pool_max_size: 10
+state_file: agents.json
+audit_log: audit.log
+metrics_file: metrics.json

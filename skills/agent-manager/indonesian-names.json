@@ -1,0 +1,17 @@
+{
+  "technical": {
+    "firstNames": ["Budi", "Ahmad", "Dwi", "Eko", "Surya", "Rudi", "Agus", "Yudi", "Joko", "Sandi"],
+    "lastNames": ["Santoso", "Setiawan", "Susilo", "Prasetyo", "Wibowo", "Hidayat", "Rahman", "Hakim", "Suryanto", "Pratama"],
+    "prefixes": ["Prof.", "Dr."]
+  },
+  "analytical": {
+    "firstNames": ["Dewi", "Siti", "Rina", "Lestari", "Sri", "Indah", "Nita", "Sari", "Wati", "Yuni"],
+    "lastNames": ["Setiawan", "Susanti", "Wulandari", "Pratiwi", "Ningsih", "Haryanti", "Puspita", "Wulandari", "Haryani", "Prasetyawati"],
+    "prefixes": ["Prof.", "Dr."]
+  },
+  "creative": {
+    "firstNames": ["Gusti", "Putu", "Kadek", "Nyoman", "Made", "Ketut", "Wayan", "Komang", "Agung", "Gede"],
+    "lastNames": ["Wulansari", "Saraswati", "Wijaya", "Suardana", "Purnama", "Candra", "Surya", "Paramita", "Mahadewi", "Anggraini"],
+    "prefixes": ["I Gusti", "I Putu", "I Kadek"]
+  }
+}

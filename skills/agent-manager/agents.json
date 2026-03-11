@@ -1,0 +1,43 @@
+{
+  "agents": {
+    "agent-1773202034234-wzaldzvpn": {
+      "id": "agent-1773202034234-wzaldzvpn",
+      "role": "technical",
+      "name": "Dr. Yudi Susilo",
+      "task": "pipeline-test",
+      "priority": 3,
+      "status": "active",
+      "spawnedAt": "2026-03-11T04:07:14.234Z",
+      "lastActive": 1773202034234,
+      "metadata": {}
+    },
+    "agent-1773202287103-h9xrbox1r": {
+      "id": "agent-1773202287103-h9xrbox1r",
+      "role": "technical",
+      "name": "Dr. Sandi Hidayat",
+      "task": "pipeline-test",
+      "priority": 3,
+      "status": "active",
+      "spawnedAt": "2026-03-11T04:11:27.103Z",
+      "lastActive": 1773202287103,
+      "metadata": {}
+    },
+    "agent-1773202304006-pc2wztbl3": {
+      "id": "agent-1773202304006-pc2wztbl3",
+      "role": "analytical",
+      "name": "Dr. Report Sri Wulandari",
+      "task": "report-analysis",
+      "priority": 3,
+      "status": "active",
+      "spawnedAt": "2026-03-11T04:11:44.006Z",
+      "lastActive": 1773202304006,
+      "metadata": {}
+    }
+  },
+  "metrics": {
+    "spawnCount": 7,
+    "terminateCount": 3,
+    "totalUptime": 0
+  },
+  "lastSave": "2026-03-11T04:11:44.006Z"
+}
