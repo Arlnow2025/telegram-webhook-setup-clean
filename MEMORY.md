@@ -50,6 +50,7 @@
 - ✅ Updated queue worker to integrate with Agent Manager
 - ✅ Verified GitHub documentation matches local implementation
 - ✅ Uploaded complete system to GitHub repository
+- ✅ Added Telegram display formatting
 
 ### Technical Implementation
 - **MCP Tools**: `agent_spawn`, `agent_terminate`, `agent_list`, `agent_pool_status`
@@ -64,7 +65,7 @@
 - **URL**: `https://github.com/Arlnow2025/telegram-webhook-setup-clean`
 - **Branch**: `main`
 - **Status**: Repository contains complete Agent Manager + Queue Worker system
-- **Last Commit**: `4f2099c7` - "Add full Agent Manager + Queue Worker system"
+- **Last Commit**: `96e177ad` - "Add status card for Telegram display"
 
 ### Systemd Services
 - **openclaw-agent-manager.service**: Running, auto-restart
@@ -90,6 +91,53 @@
 - **Memory**: 40-60% (stable)
 - **Disk**: 55-58% (normal)
 - **Queue Processing**: Active every 60 seconds
+
+## Telegram Display Formatting
+
+### Template Format
+```
+✌️ **OpenClaw Agent (nolimit)**
+
+**Status**: 🟢 Active & Operational
+
+📊 **Current Status**
+• Agent Manager: Running (PID 2905355)
+• Queue Worker: Running (PID 2935781)
+• GitHub: Repository updated
+• Memory: Documented & persistent
+
+🚀 **Core Capabilities**
+• Agent Management (spawn, scale, terminate)
+• Queue Integration (auto-spawn agents)
+• Indonesian Naming (cultural relevance)
+• MCP Protocol (2024-11-05 compliant)
+• System Monitoring (CPU, memory, disk)
+
+✅ **Recent Achievements**
+• Complete Agent Manager MCP server
+• Indonesian name generator
+• Systemd services (auto-restart)
+• GitHub upload complete
+• Queue worker integration
+• Auto-scaling + auto-termination
+
+🔒 **Security**
+• Gateway bind: 127.0.0.1 (safe)
+• mDNS: minimal (safe)
+• Auth required by default
+• Sandbox recommended
+
+🌐 **Repository**: Arlnow2025/telegram-webhook-setup-clean
+📅 **Last Updated**: 2026-03-11 03:13 UTC
+```
+
+### Usage Guidelines
+- **Status Updates**: Use template for regular status reports
+- **Customize**: Update numbers/status based on current state
+- **Emoji**: Use emojis for visual appeal and quick scanning
+- **Bold/Italic**: Use markdown formatting for emphasis
+- **Line breaks**: Use proper spacing for readability
+- **Job Notifications**: Use similar format for specific job completions
 
 ## Future Improvements
 
@@ -135,9 +183,11 @@
 - ✅ Systemd services auto-restarting
 - ✅ GitHub repository updated with complete system
 - ✅ Documentation comprehensive and accurate
+- ✅ Telegram display formatting implemented
 
 ---
 
-**Last Updated**: 2026-03-11 03:13 UTC
+**Last Updated**: 2026-03-11 03:23 UTC
 **Agent**: OpenClaw Agent (nolimit) - Professional Agent Manager
 **Status**: Active, operational, and continuously improving
+**Telegram Format**: Implemented and remembered for future messages
