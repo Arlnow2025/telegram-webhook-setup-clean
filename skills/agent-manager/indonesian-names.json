@@ -1,17 +1,33 @@
 {
   "technical": {
-    "firstNames": ["Budi", "Ahmad", "Dwi", "Eko", "Surya", "Rudi", "Agus", "Yudi", "Joko", "Sandi"],
-    "lastNames": ["Santoso", "Setiawan", "Susilo", "Prasetyo", "Wibowo", "Hidayat", "Rahman", "Hakim", "Suryanto", "Pratama"],
-    "prefixes": ["Prof.", "Dr."]
+    "firstNames": ["Budi", "Ahmad", "Dwi"],
+    "lastNames": ["Santoso", "Setiawan", "Susilo"],
+    "prefixes": ["Dr."],
+    "fixedNames": [
+      "Dr. Budi Santoso",
+      "Dr. Ahmad Setiawan",
+      "Dr. Dwi Susilo"
+    ]
   },
   "analytical": {
-    "firstNames": ["Dewi", "Siti", "Rina", "Lestari", "Sri", "Indah", "Nita", "Sari", "Wati", "Yuni"],
-    "lastNames": ["Setiawan", "Susanti", "Wulandari", "Pratiwi", "Ningsih", "Haryanti", "Puspita", "Wulandari", "Haryani", "Prasetyawati"],
-    "prefixes": ["Prof.", "Dr."]
+    "firstNames": ["Dewi", "Siti", "Rina", "Sri"],
+    "lastNames": ["Setiawan", "Susanti", "Wulandari", "Pratiwi"],
+    "prefixes": ["Dr."],
+    "fixedNames": [
+      "Dr. Dewi Setiawan",
+      "Dr. Siti Susanti",
+      "Dr. Rina Wulandari",
+      "Dr. Sri Pratiwi"
+    ]
   },
   "creative": {
-    "firstNames": ["Gusti", "Putu", "Kadek", "Nyoman", "Made", "Ketut", "Wayan", "Komang", "Agung", "Gede"],
-    "lastNames": ["Wulansari", "Saraswati", "Wijaya", "Suardana", "Purnama", "Candra", "Surya", "Paramita", "Mahadewi", "Anggraini"],
-    "prefixes": ["I Gusti", "I Putu", "I Kadek"]
+    "firstNames": ["Gusti", "Putu", "Kadek"],
+    "lastNames": ["Saraswati", "Wijaya", "Purnama"],
+    "prefixes": ["I Gusti", "I Putu", "I Kadek"],
+    "fixedNames": [
+      "I Gusti Saraswati",
+      "I Putu Wijaya",
+      "I Kadek Purnama"
+    ]
   }
 }
