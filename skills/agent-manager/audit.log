@@ -525,3 +525,122 @@
 {"timestamp":"2026-03-11T06:49:24.440Z","action":"spawn","details":{"agentId":"agent-1773211764436-xrtp6tbre","role":"analytical","name":"Dr. Dewi Setiawan","task":"balance"}}
 {"timestamp":"2026-03-11T06:49:26.185Z","action":"spawn","details":{"agentId":"agent-1773211766184-wkk14a52v","role":"analytical","name":"Dr. Sri Wulandari","task":"balance"}}
 {"timestamp":"2026-03-11T06:49:28.049Z","action":"spawn","details":{"agentId":"agent-1773211768048-2xtdudes9","role":"creative","name":"I Kadek Nyoman Purnama","task":"balance"}}
+{"timestamp":"2026-03-11T07:01:26.941Z","action":"auto-terminate","details":{"agentId":"agent-1773211586118-wo8ey3wz7","reason":"idle timeout","timestamp":"2026-03-11T07:01:26.941Z"}}
+{"timestamp":"2026-03-11T07:01:28.818Z","action":"auto-terminate","details":{"agentId":"agent-1773211588011-u6ormmwx2","reason":"idle timeout","timestamp":"2026-03-11T07:01:28.818Z"}}
+{"timestamp":"2026-03-11T07:01:30.931Z","action":"auto-terminate","details":{"agentId":"agent-1773211588011-u6ormmwx2","reason":"idle timeout","timestamp":"2026-03-11T07:01:30.931Z"}}
+{"timestamp":"2026-03-11T07:01:47.718Z","action":"auto-terminate","details":{"agentId":"agent-1773211606899-4h1otzz9m","reason":"idle timeout","timestamp":"2026-03-11T07:01:47.718Z"}}
+{"timestamp":"2026-03-11T07:01:49.719Z","action":"auto-terminate","details":{"agentId":"agent-1773211606899-4h1otzz9m","reason":"idle timeout","timestamp":"2026-03-11T07:01:49.719Z"}}
+{"timestamp":"2026-03-11T07:01:49.719Z","action":"auto-terminate","details":{"agentId":"agent-1773211608909-pc8gudu1l","reason":"idle timeout","timestamp":"2026-03-11T07:01:49.719Z"}}
+{"timestamp":"2026-03-11T07:01:51.607Z","action":"auto-terminate","details":{"agentId":"agent-1773211606899-4h1otzz9m","reason":"idle timeout","timestamp":"2026-03-11T07:01:51.607Z"}}
+{"timestamp":"2026-03-11T07:01:51.607Z","action":"auto-terminate","details":{"agentId":"agent-1773211608909-pc8gudu1l","reason":"idle timeout","timestamp":"2026-03-11T07:01:51.607Z"}}
+{"timestamp":"2026-03-11T07:01:51.607Z","action":"auto-terminate","details":{"agentId":"agent-1773211610835-166ctzrr2","reason":"idle timeout","timestamp":"2026-03-11T07:01:51.607Z"}}
+{"timestamp":"2026-03-11T07:01:53.510Z","action":"auto-terminate","details":{"agentId":"agent-1773211606899-4h1otzz9m","reason":"idle timeout","timestamp":"2026-03-11T07:01:53.510Z"}}
+{"timestamp":"2026-03-11T07:01:53.510Z","action":"auto-terminate","details":{"agentId":"agent-1773211608909-pc8gudu1l","reason":"idle timeout","timestamp":"2026-03-11T07:01:53.510Z"}}
+{"timestamp":"2026-03-11T07:01:53.510Z","action":"auto-terminate","details":{"agentId":"agent-1773211610835-166ctzrr2","reason":"idle timeout","timestamp":"2026-03-11T07:01:53.510Z"}}
+{"timestamp":"2026-03-11T07:02:15.417Z","action":"auto-terminate","details":{"agentId":"agent-1773211634577-xvv8jr2ry","reason":"idle timeout","timestamp":"2026-03-11T07:02:15.417Z"}}
+{"timestamp":"2026-03-11T07:03:10.539Z","action":"auto-terminate","details":{"agentId":"agent-1773211689727-dttleqvea","reason":"idle timeout","timestamp":"2026-03-11T07:03:10.539Z"}}
+{"timestamp":"2026-03-11T07:03:12.390Z","action":"auto-terminate","details":{"agentId":"agent-1773211691567-pvyrinn1z","reason":"idle timeout","timestamp":"2026-03-11T07:03:12.390Z"}}
+{"timestamp":"2026-03-11T07:04:19.774Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:19.774Z"}}
+{"timestamp":"2026-03-11T07:04:21.703Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:21.703Z"}}
+{"timestamp":"2026-03-11T07:04:21.703Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:21.703Z"}}
+{"timestamp":"2026-03-11T07:04:23.559Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:23.559Z"}}
+{"timestamp":"2026-03-11T07:04:23.559Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:23.559Z"}}
+{"timestamp":"2026-03-11T07:04:23.559Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:23.559Z"}}
+{"timestamp":"2026-03-11T07:04:25.249Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:25.249Z"}}
+{"timestamp":"2026-03-11T07:04:25.249Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:25.249Z"}}
+{"timestamp":"2026-03-11T07:04:25.249Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:25.249Z"}}
+{"timestamp":"2026-03-11T07:04:25.249Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:25.249Z"}}
+{"timestamp":"2026-03-11T07:04:27.021Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:27.021Z"}}
+{"timestamp":"2026-03-11T07:04:27.021Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:27.021Z"}}
+{"timestamp":"2026-03-11T07:04:27.021Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:27.021Z"}}
+{"timestamp":"2026-03-11T07:04:27.021Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:27.021Z"}}
+{"timestamp":"2026-03-11T07:04:27.021Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:27.021Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:28.911Z","action":"auto-terminate","details":{"agentId":"agent-1773211768048-2xtdudes9","reason":"idle timeout","timestamp":"2026-03-11T07:04:28.911Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:30.655Z","action":"auto-terminate","details":{"agentId":"agent-1773211768048-2xtdudes9","reason":"idle timeout","timestamp":"2026-03-11T07:04:30.655Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:33.687Z","action":"auto-terminate","details":{"agentId":"agent-1773211768048-2xtdudes9","reason":"idle timeout","timestamp":"2026-03-11T07:04:33.687Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:46.912Z","action":"auto-terminate","details":{"agentId":"agent-1773211768048-2xtdudes9","reason":"idle timeout","timestamp":"2026-03-11T07:04:46.912Z"}}
+{"timestamp":"2026-03-11T07:04:48.812Z","action":"auto-terminate","details":{"agentId":"agent-1773211758968-ib4oyg8w2","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.812Z"}}
+{"timestamp":"2026-03-11T07:04:48.812Z","action":"auto-terminate","details":{"agentId":"agent-1773211760857-xci3d1qlt","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.812Z"}}
+{"timestamp":"2026-03-11T07:04:48.812Z","action":"auto-terminate","details":{"agentId":"agent-1773211762713-064gf2c58","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.812Z"}}
+{"timestamp":"2026-03-11T07:04:48.813Z","action":"auto-terminate","details":{"agentId":"agent-1773211764436-xrtp6tbre","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.813Z"}}
+{"timestamp":"2026-03-11T07:04:48.813Z","action":"auto-terminate","details":{"agentId":"agent-1773211766184-wkk14a52v","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.813Z"}}
+{"timestamp":"2026-03-11T07:04:48.813Z","action":"auto-terminate","details":{"agentId":"agent-1773211768048-2xtdudes9","reason":"idle timeout","timestamp":"2026-03-11T07:04:48.813Z"}}
+{"timestamp":"2026-03-11T11:52:52.793Z","action":"spawn","details":{"agentId":"agent-1773229972792-zelalw9wm","role":"technical","name":"Dr. Sandi Hidayat","task":"Create comprehensive documentation for Telegram webhook setup and OpenClaw system configuration"}}
+{"timestamp":"2026-03-11T12:07:53.594Z","action":"auto-terminate","details":{"agentId":"agent-1773229972792-zelalw9wm","reason":"idle timeout","timestamp":"2026-03-11T12:07:53.594Z"}}
+{"timestamp":"2026-03-11T12:08:04.251Z","action":"auto-terminate","details":{"agentId":"agent-1773229972792-zelalw9wm","reason":"idle timeout","timestamp":"2026-03-11T12:08:04.250Z"}}
+{"timestamp":"2026-03-11T12:08:10.253Z","action":"auto-terminate","details":{"agentId":"agent-1773229972792-zelalw9wm","reason":"idle timeout","timestamp":"2026-03-11T12:08:10.253Z"}}
+{"timestamp":"2026-03-11T12:08:21.651Z","action":"auto-terminate","details":{"agentId":"agent-1773229972792-zelalw9wm","reason":"idle timeout","timestamp":"2026-03-11T12:08:21.651Z"}}
+{"timestamp":"2026-03-11T12:25:18.019Z","action":"spawn","details":{"agentId":"agent-1773231918015-nl6854yxs","role":"technical","name":"Dr. Eko Rahman","task":"Create comprehensive documentation for Telegram webhook setup and OpenClaw system configuration"}}
+{"timestamp":"2026-03-11T12:40:39.083Z","action":"auto-terminate","details":{"agentId":"agent-1773231918015-nl6854yxs","reason":"idle timeout","timestamp":"2026-03-11T12:40:39.083Z"}}
+{"timestamp":"2026-03-11T12:53:56.279Z","action":"spawn","details":{"agentId":"agent-1773233636278-gikn4wlga","role":"analytical","name":"Dr. Rina Ningsih","task":"Create comprehensive documentation for Telegram webhook setup and OpenClaw system configuration"}}
+{"timestamp":"2026-03-11T23:29:56.213Z","action":"spawn","details":{"agentId":"agent-1773271796212-swx0987uf","role":"creative","name":"I Kadek Gusti Mahadewi","task":"[\"create\", \"marketing-copy\"]"}}
+{"timestamp":"2026-03-11T23:30:02.346Z","action":"spawn","details":{"agentId":"agent-1773271802345-102nm4wgs","role":"technical","name":"Dr. Dwi Setiawan","task":"[\"nmap\", \"-sS\", \"10.3.4.0/24\"]"}}
+{"timestamp":"2026-03-11T23:30:08.256Z","action":"spawn","details":{"agentId":"agent-1773271808254-boezalol2","role":"analytical","name":"Dr. Sri Kusumaningrum","task":"[\"generate\", \"sales-report\"]"}}
+{"timestamp":"2026-03-11T23:30:14.267Z","action":"spawn","details":{"agentId":"agent-1773271814266-ldp4eiq1f","role":"technical","name":"Prof. Dwi Prasetyo","task":"dojo-train:github-issue-triage"}}
+{"timestamp":"2026-03-11T23:30:20.102Z","action":"spawn","details":{"agentId":"agent-1773271820101-kc2boakly","role":"analytical","name":"Dr. Lestari Setiawan","task":"[\"audit\", \"system\", \"full\"]"}}
+{"timestamp":"2026-03-11T23:44:13.883Z","action":"spawn","details":{"agentId":"agent-1773272653882-85v3kahjr","role":"analytical","name":"Dr. Yuni Prasetyawati","task":"[\"audit\", \"system\", \"security\"]"}}
+{"timestamp":"2026-03-11T23:45:37.184Z","action":"auto-terminate","details":{"agentId":"agent-1773271796212-swx0987uf","reason":"idle timeout","timestamp":"2026-03-11T23:45:37.184Z"}}
+{"timestamp":"2026-03-11T23:45:37.184Z","action":"auto-terminate","details":{"agentId":"agent-1773271802345-102nm4wgs","reason":"idle timeout","timestamp":"2026-03-11T23:45:37.184Z"}}
+{"timestamp":"2026-03-11T23:45:37.184Z","action":"auto-terminate","details":{"agentId":"agent-1773271808254-boezalol2","reason":"idle timeout","timestamp":"2026-03-11T23:45:37.184Z"}}
+{"timestamp":"2026-03-11T23:45:37.184Z","action":"auto-terminate","details":{"agentId":"agent-1773271814266-ldp4eiq1f","reason":"idle timeout","timestamp":"2026-03-11T23:45:37.184Z"}}
+{"timestamp":"2026-03-11T23:45:37.184Z","action":"auto-terminate","details":{"agentId":"agent-1773271820101-kc2boakly","reason":"idle timeout","timestamp":"2026-03-11T23:45:37.184Z"}}
+{"timestamp":"2026-03-11T23:45:58.422Z","action":"auto-terminate","details":{"agentId":"agent-1773271796212-swx0987uf","reason":"idle timeout","timestamp":"2026-03-11T23:45:58.422Z"}}
+{"timestamp":"2026-03-11T23:45:58.422Z","action":"auto-terminate","details":{"agentId":"agent-1773271802345-102nm4wgs","reason":"idle timeout","timestamp":"2026-03-11T23:45:58.422Z"}}
+{"timestamp":"2026-03-11T23:45:58.422Z","action":"auto-terminate","details":{"agentId":"agent-1773271808254-boezalol2","reason":"idle timeout","timestamp":"2026-03-11T23:45:58.422Z"}}
+{"timestamp":"2026-03-11T23:45:58.422Z","action":"auto-terminate","details":{"agentId":"agent-1773271814266-ldp4eiq1f","reason":"idle timeout","timestamp":"2026-03-11T23:45:58.422Z"}}
+{"timestamp":"2026-03-11T23:45:58.422Z","action":"auto-terminate","details":{"agentId":"agent-1773271820101-kc2boakly","reason":"idle timeout","timestamp":"2026-03-11T23:45:58.422Z"}}
+{"timestamp":"2026-03-11T23:47:13.775Z","action":"spawn","details":{"agentId":"agent-1773272833774-bmubaeo1z","role":"analytical","name":"Dr. Dewi Setiawan","task":"[\"audit\", \"system\", \"security\"]"}}
+{"timestamp":"2026-03-11T23:47:19.787Z","action":"spawn","details":{"agentId":"agent-1773272839786-77m0ktvin","role":"technical","name":"Dr. Joko Rahman","task":"[\"nmap\", \"-sS\", \"10.3.4.0/24\"]"}}
+{"timestamp":"2026-03-11T23:58:11.958Z","action":"spawn","details":{"agentId":"agent-1773273491956-ybverp12s","role":"technical","name":"Dr. Agus Setiawan","task":"Fix bug in /root/.openclaw/workspace/queue-worker.js: 1) Replace poolStatus.agents.find() with mcporter call agent-manager.agent_list to find idle agent by role, 2) Replace hardcoded number 8 with poolStatus.poolMax in pool capacity check. Backup file first, then apply fix, then verify with sed -n 195,225p"}}
+{"timestamp":"2026-03-11T23:59:18.957Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:18.957Z"}}
+{"timestamp":"2026-03-11T23:59:21.561Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:21.561Z"}}
+{"timestamp":"2026-03-11T23:59:35.839Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:35.839Z"}}
+{"timestamp":"2026-03-11T23:59:39.128Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:39.128Z"}}
+{"timestamp":"2026-03-11T23:59:40.448Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:40.448Z"}}
+{"timestamp":"2026-03-11T23:59:42.001Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:42.001Z"}}
+{"timestamp":"2026-03-11T23:59:42.170Z","action":"auto-terminate","details":{"agentId":"agent-1773272653882-85v3kahjr","reason":"idle timeout","timestamp":"2026-03-11T23:59:42.170Z"}}
+{"timestamp":"2026-03-12T00:00:08.666Z","action":"spawn","details":{"agentId":"agent-1773273608665-8x0emwiqm","role":"analytical","name":"Dr. Yuni Prasetyawati","task":"[\"audit\", \"system\", \"quick\"]"}}
+{"timestamp":"2026-03-12T00:00:12.487Z","action":"spawn","details":{"agentId":"agent-1773273612486-6cqrlwlxt","role":"technical","name":"Dr. Yudi Suryanto","task":"[\"nmap\", \"-F\", \"10.3.4.0/24\"]"}}
+{"timestamp":"2026-03-12T00:02:19.130Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:19.130Z"}}
+{"timestamp":"2026-03-12T00:02:21.716Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:21.716Z"}}
+{"timestamp":"2026-03-12T00:02:21.716Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:21.716Z"}}
+{"timestamp":"2026-03-12T00:02:35.993Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:35.993Z"}}
+{"timestamp":"2026-03-12T00:02:35.993Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:35.993Z"}}
+{"timestamp":"2026-03-12T00:02:37.409Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:37.409Z"}}
+{"timestamp":"2026-03-12T00:02:37.409Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:37.409Z"}}
+{"timestamp":"2026-03-12T00:02:38.770Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:38.770Z"}}
+{"timestamp":"2026-03-12T00:02:38.770Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:38.770Z"}}
+{"timestamp":"2026-03-12T00:02:39.306Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:39.306Z"}}
+{"timestamp":"2026-03-12T00:02:39.306Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:39.306Z"}}
+{"timestamp":"2026-03-12T00:02:40.625Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:40.625Z"}}
+{"timestamp":"2026-03-12T00:02:40.625Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:40.625Z"}}
+{"timestamp":"2026-03-12T00:02:41.091Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:41.091Z"}}
+{"timestamp":"2026-03-12T00:02:41.091Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:41.091Z"}}
+{"timestamp":"2026-03-12T00:02:42.187Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.187Z"}}
+{"timestamp":"2026-03-12T00:02:42.187Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.187Z"}}
+{"timestamp":"2026-03-12T00:02:42.350Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.350Z"}}
+{"timestamp":"2026-03-12T00:02:42.350Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.350Z"}}
+{"timestamp":"2026-03-12T00:02:42.593Z","action":"auto-terminate","details":{"agentId":"agent-1773272833774-bmubaeo1z","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.593Z"}}
+{"timestamp":"2026-03-12T00:02:42.593Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:42.593Z"}}
+{"timestamp":"2026-03-12T00:02:49.161Z","action":"auto-terminate","details":{"agentId":"agent-1773272839786-77m0ktvin","reason":"idle timeout","timestamp":"2026-03-12T00:02:49.161Z"}}
+{"timestamp":"2026-03-12T00:15:09.478Z","action":"auto-terminate","details":{"agentId":"agent-1773273608665-8x0emwiqm","reason":"idle timeout","timestamp":"2026-03-12T00:15:09.478Z"}}

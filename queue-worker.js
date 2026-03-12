@@ -201,12 +201,13 @@ class QueueWorker {
       try {
         // Cek pool dulu sebelum spawn
         const poolStatus = mcporter.call('agent-manager.agent_pool_status', {});
-        const idleAgent = poolStatus.agents &&
-        poolStatus.agents.find(a => a.role === role && a.status === 'active');
+        const agentListResult = mcporter.call("agent-manager.agent_list", {});
+        const idleAgent = agentListResult.agents &&
+        agentListResult.agents.find(a => a.role === role && a.status === 'active');
         if (idleAgent) {
           console.log(`♻️ Reusing agent: ${idleAgent.name} (${role})`);
           agentResponse = idleAgent;
-        } else if (poolStatus.count < 8) {
+        } else if (poolStatus.count < poolStatus.poolMax) {
           agentResponse = mcporter.call('agent-manager.agent_spawn', {
             role: role,
             task: jobCommand,

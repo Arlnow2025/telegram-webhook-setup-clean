@@ -1,5 +1,21 @@
+# OpenClaw Agent Manager - Configuration
+# v1.1.0 - File ini sekarang AKTIF dibaca oleh server.js
+# Edit file ini untuk mengubah perilaku agent manager tanpa perlu restart kode
+
+# Timeout agent idle sebelum auto-terminate (dalam milidetik)
+# Default: 900000 = 15 menit
+# Rekomendasi untuk task panjang: 1800000 = 30 menit
 agent_timeout_ms: 900000
+
+# Jumlah maksimum agent yang boleh aktif bersamaan di pool
+# Naikkan jika sering kena "Agent pool full"
 pool_max_size: 10
+
+# Nama file state (relatif terhadap direktori server)
 state_file: agents.json
+
+# Nama file audit log
 audit_log: audit.log
+
+# Nama file metrics (sekarang aktif ditulis)
 metrics_file: metrics.json

@@ -1,10 +1,10 @@
 // Indonesian Name Generator for OpenClaw Agent Manager
-// Generates culturally relevant names based on agent role
+// v1.1.0 - Fixed: task modifier tidak menyusup ke nama agent
 
 const fs = require('fs');
 const path = require('path');
 
-// Name pools
+// Name pools default
 const NAME_POOLS = {
   technical: {
     titles: ['Dr.', 'Engineer', 'Tech', 'Dev'],
@@ -15,7 +15,7 @@ const NAME_POOLS = {
   analytical: {
     titles: ['Prof.', 'Analyst', 'Researcher', 'Data'],
     firstNames: ['Dewi', 'Siti', 'Rina', 'Lestari', 'Sri', 'Indah', 'Nita', 'Sari', 'Wati', 'Yuni'],
-    lastNames: ['Setiawan', 'Susanti', 'Wulandari', 'Pratiwi', 'Ningsih', 'Haryanti', 'Puspita', 'Wulandari', 'Haryani', 'Prasetyawati'],
+    lastNames: ['Setiawan', 'Susanti', 'Wulandari', 'Pratiwi', 'Ningsih', 'Haryanti', 'Puspita', 'Haryani', 'Prasetyawati', 'Kusumaningrum'],
     prefixes: ['Prof.', 'Dr.']
   },
   creative: {
@@ -26,7 +26,7 @@ const NAME_POOLS = {
   }
 };
 
-// Task-based name modifiers
+// Task-based name modifiers (hanya untuk generateWithTask, tidak dipakai di generate())
 const TASK_MODIFIERS = {
   'github': 'GitHub',
   'dojo': 'Dojo',
@@ -52,7 +52,15 @@ class NameGenerator {
         const customData = JSON.parse(fs.readFileSync(customPath, 'utf8'));
         for (const role in customData) {
           if (NAME_POOLS[role]) {
-            Object.assign(NAME_POOLS[role], customData[role]);
+            // Merge array dengan deduplikasi, tidak replace seluruh pool
+            for (const key in customData[role]) {
+              if (Array.isArray(customData[role][key]) && Array.isArray(NAME_POOLS[role][key])) {
+                const merged = [...new Set([...NAME_POOLS[role][key], ...customData[role][key]])];
+                NAME_POOLS[role][key] = merged;
+              } else {
+                NAME_POOLS[role][key] = customData[role][key];
+              }
+            }
           }
         }
         console.log('[NameGenerator] Loaded custom Indonesian names');
@@ -62,75 +70,80 @@ class NameGenerator {
     }
   }
 
-  generate(role, task) {
+  generate(role, task = '') {
     if (!NAME_POOLS[role]) {
-      role = 'technical'; // Default to technical
+      role = 'technical'; // Default fallback
     }
 
     const pool = NAME_POOLS[role];
-    
-    // Generate base name
+
     const firstName = this.getRandom(pool.firstNames);
     const lastName = this.getRandom(pool.lastNames);
-    
-    let fullName = `${firstName} ${lastName}`;
 
-    // Add prefix based on role only (no task modifier in name)
-    let prefix = "";
-    if (role === "technical" || role === "analytical") {
-      prefix = task.includes("github") || task.includes("dojo") ? "Prof. " : "Dr. ";
-    } else if (role === "creative") {
-      const randomPrefix = this.getRandom(pool.prefixes) || "I Gusti";
-      prefix = randomPrefix + " ";
+    // FIX: Prefix hanya berdasarkan role, TIDAK campur task modifier ke dalam nama
+    let prefix = '';
+    if (role === 'technical' || role === 'analytical') {
+      // Gunakan "Prof." jika task mengandung kata github/dojo, selainnya "Dr."
+      const isAcademic = task && (task.toLowerCase().includes('github') || task.toLowerCase().includes('dojo'));
+      prefix = isAcademic ? 'Prof. ' : 'Dr. ';
+    } else if (role === 'creative') {
+      // Ambil prefix Bali yang valid dari pool
+      const randomPrefix = this.getRandom(pool.prefixes) || 'I Gusti';
+      prefix = randomPrefix + ' ';
     }
 
-    const finalName = prefix + fullName;
-    return finalName;
+    return `${prefix}${firstName} ${lastName}`;
   }
 
   getRandom(array) {
+    if (!array || array.length === 0) return '';
     return array[Math.floor(Math.random() * array.length)];
   }
 
   generateMultiple(role, count) {
     const names = new Set();
-    while (names.size < count) {
+    let attempts = 0;
+    const maxAttempts = count * 10; // Cegah infinite loop jika pool kecil
+    while (names.size < count && attempts < maxAttempts) {
       names.add(this.generate(role, ''));
+      attempts++;
     }
     return Array.from(names);
   }
 
-  // Generate name with custom task
+  // Generate name dengan task modifier sebagai label (bukan bagian dari nama)
   generateWithTask(role, task) {
-    const baseName = this.generate(role, '');
+    const baseName = this.generate(role, task);
     const taskKeywords = Object.keys(TASK_MODIFIERS);
-    const matchedKeyword = taskKeywords.find(keyword => 
+    const matchedKeyword = taskKeywords.find(keyword =>
       task.toLowerCase().includes(keyword)
     );
-    
+
+    // Task modifier hanya sebagai label terpisah, bukan disisipkan ke nama
     if (matchedKeyword) {
-      const modifier = TASK_MODIFIERS[matchedKeyword];
-      return `${modifier} ${baseName}`;
+      return {
+        name: baseName,
+        taskLabel: TASK_MODIFIERS[matchedKeyword]
+      };
     }
-    
-    return baseName;
+
+    return { name: baseName, taskLabel: null };
   }
 }
 
-// Create instance
+// Create singleton instance
 const nameGenerator = new NameGenerator();
 
-// Export for use
 module.exports = nameGenerator;
-
-// Export class for testing
 module.exports.NameGenerator = NameGenerator;
 
-// Example usage
+// Test jika dijalankan langsung
 if (require.main === module) {
-  console.log('Testing Indonesian Name Generator:');
-  console.log('Technical:', nameGenerator.generate('technical', 'github-issue-triage'));
-  console.log('Analytical:', nameGenerator.generate('analytical', 'data-report'));
+  console.log('Testing Indonesian Name Generator v1.1.0:');
+  console.log('Technical (github):', nameGenerator.generate('technical', 'github-backup'));
+  console.log('Technical (normal):', nameGenerator.generate('technical', 'fix-server'));
+  console.log('Analytical:', nameGenerator.generate('analytical', 'report-analysis'));
   console.log('Creative:', nameGenerator.generate('creative', 'social-media'));
-  console.log('Multiple:', nameGenerator.generateMultiple('technical', 3));
+  console.log('Multiple technical:', nameGenerator.generateMultiple('technical', 3));
+  console.log('With task label:', nameGenerator.generateWithTask('analytical', 'report-analysis'));
 }

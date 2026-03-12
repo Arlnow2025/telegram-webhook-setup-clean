@@ -1,8 +1,10 @@
 // OpenClaw Agent Manager MCP Server
 // Professional sub-agent lifecycle management with Indonesian naming
+// v1.1.0 - Fixed: duplicate terminate, lastActive update, metrics order, config.yaml loading
 
 const fs = require('fs');
 const path = require('path');
+const yaml = require('js-yaml');
 const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
 const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
 const {
@@ -13,14 +15,32 @@ const {
 // Indonesian name generator
 const nameGenerator = require('./name-generator');
 
-// Configuration
-const CONFIG = {
+// Default Configuration (akan di-override oleh config.yaml)
+let CONFIG = {
   AGENT_TIMEOUT_MS: 15 * 60 * 1000, // 15 minutes
   POOL_MAX_SIZE: 10,
   STATE_FILE: path.join(__dirname, 'agents.json'),
   AUDIT_LOG: path.join(__dirname, 'audit.log'),
   METRICS_FILE: path.join(__dirname, 'metrics.json')
 };
+
+// FIX #3: Load config.yaml dan override default CONFIG
+function loadConfig() {
+  const configPath = path.join(__dirname, 'config.yaml');
+  try {
+    if (fs.existsSync(configPath)) {
+      const fileConfig = yaml.load(fs.readFileSync(configPath, 'utf8'));
+      if (fileConfig.pool_max_size)    CONFIG.POOL_MAX_SIZE    = fileConfig.pool_max_size;
+      if (fileConfig.agent_timeout_ms) CONFIG.AGENT_TIMEOUT_MS = fileConfig.agent_timeout_ms;
+      if (fileConfig.state_file)       CONFIG.STATE_FILE       = path.join(__dirname, fileConfig.state_file);
+      if (fileConfig.audit_log)        CONFIG.AUDIT_LOG        = path.join(__dirname, fileConfig.audit_log);
+      if (fileConfig.metrics_file)     CONFIG.METRICS_FILE     = path.join(__dirname, fileConfig.metrics_file);
+      console.log('[AgentManager] Config loaded from config.yaml');
+    }
+  } catch (err) {
+    console.error('[AgentManager] Failed to load config.yaml, using defaults:', err.message);
+  }
+}
 
 // Load persistent state
 let agents = new Map();
@@ -49,6 +69,9 @@ function saveState() {
       lastSave: new Date().toISOString()
     };
     fs.writeFileSync(CONFIG.STATE_FILE, JSON.stringify(state, null, 2));
+
+    // FIX #5: Tulis metrics.json secara terpisah
+    fs.writeFileSync(CONFIG.METRICS_FILE, JSON.stringify({ ...metrics, lastUpdate: new Date().toISOString() }, null, 2));
   } catch (err) {
     console.error(`[AgentManager] Failed to save state:`, err.message);
   }
@@ -63,54 +86,62 @@ function logAudit(action, details) {
   fs.appendFileSync(CONFIG.AUDIT_LOG, JSON.stringify(entry) + '\n');
 }
 
+// FIX #1: Guard flag untuk mencegah duplicate/overlap cleanup
+let isCleanupRunning = false;
+
 function cleanupIdleAgents() {
-  const now = Date.now();
-  let cleaned = 0;
+  // Cegah cleanup berjalan bersamaan (race condition)
+  if (isCleanupRunning) return;
+  isCleanupRunning = true;
 
-  // Kumpulkan dulu, baru delete (aman untuk Map iteration)
-  const toClean = [];
-  for (const [id, agent] of agents) {
-    // Hanya agent active yang idle (tidak sedang busy)
-    const isIdle = agent.status === 'active';
-    const isTimedOut = (now - agent.lastActive) > CONFIG.AGENT_TIMEOUT_MS;
+  try {
+    const now = Date.now();
+    const toClean = [];
 
-    if (isIdle && isTimedOut) {
-      toClean.push(id);
+    // Kumpulkan dulu, baru delete (aman untuk Map iteration)
+    for (const [id, agent] of agents) {
+      const isIdle = agent.status === 'active';
+      const isTimedOut = (now - agent.lastActive) > CONFIG.AGENT_TIMEOUT_MS;
+      if (isIdle && isTimedOut) {
+        toClean.push(id);
+      }
     }
-  }
 
-  // Hapus & log
-  for (const id of toClean) {
-    agents.delete(id);
-    cleaned++;
-    logAudit('auto-terminate', {
-      agentId: id,
-      reason: 'idle timeout',
-      timestamp: new Date().toISOString()
-    });
-  }
+    // Hapus dengan double-check sebelum delete
+    let cleaned = 0;
+    for (const id of toClean) {
+      if (agents.has(id)) { // ← double check: pastikan belum dihapus proses lain
+        agents.delete(id);
+        cleaned++;
+        logAudit('auto-terminate', {
+          agentId: id,
+          reason: 'idle timeout',
+          timestamp: new Date().toISOString()
+        });
+      }
+    }
 
-  // Simpan state dengan error handling
-  if (cleaned > 0) {
-    console.log(`[AgentManager] Cleaned up ${cleaned} idle agents`);
-    try {
-      saveState();
+    if (cleaned > 0) {
+      console.log(`[AgentManager] Cleaned up ${cleaned} idle agents`);
+      // FIX #3: Update metrics SEBELUM saveState, bukan sesudah
       metrics.terminateCount += cleaned;
-    } catch (err) {
-      console.error('[AgentManager] Failed to save state after cleanup:', err);
+      saveState();
     }
+  } finally {
+    isCleanupRunning = false;
   }
 }
 
 async function main() {
-  // Load state
+  // Load config dulu, baru state
+  loadConfig();
   loadState();
 
   // Create MCP server
   const server = new Server(
     {
       name: 'agent-manager',
-      version: '1.0.0'
+      version: '1.1.0'
     },
     {
       capabilities: {
@@ -119,7 +150,6 @@ async function main() {
     }
   );
 
-  // Tool: agent_spawn
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
       tools: [
@@ -176,6 +206,27 @@ async function main() {
             type: 'object',
             properties: {}
           }
+        },
+        // FIX #2: Tool baru untuk update lastActive agar agent tidak timeout saat masih bekerja
+        {
+          name: 'agent_heartbeat',
+          description: 'Update agent lastActive timestamp to prevent idle timeout',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              agentId: {
+                type: 'string',
+                description: 'Agent ID to update'
+              },
+              status: {
+                type: 'string',
+                enum: ['active', 'busy'],
+                description: 'Current agent status',
+                default: 'active'
+              }
+            },
+            required: ['agentId']
+          }
         }
       ]
     };
@@ -186,7 +237,8 @@ async function main() {
 
     try {
       switch (name) {
-        case 'agent_spawn':
+
+        case 'agent_spawn': {
           // Check pool capacity
           if (agents.size >= CONFIG.POOL_MAX_SIZE) {
             cleanupIdleAgents();
@@ -195,10 +247,9 @@ async function main() {
             }
           }
 
-          // Generate Indonesian name
           const indonesianName = nameGenerator.generate(args.role, args.task);
           const agentId = `agent-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-          
+
           const agent = {
             id: agentId,
             role: args.role,
@@ -224,21 +275,20 @@ async function main() {
           logAudit('spawn', { agentId, role: args.role, name: indonesianName, task: args.task });
 
           return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify({
-                  agentId,
-                  name: indonesianName,
-                  role: args.role,
-                  status: 'active',
-                  message: `Agent spawned: ${indonesianName} (${args.role})`
-                }, null, 2)
-              }
-            ]
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                agentId,
+                name: indonesianName,
+                role: args.role,
+                status: 'active',
+                message: `Agent spawned: ${indonesianName} (${args.role})`
+              }, null, 2)
+            }]
           };
+        }
 
-        case 'agent_terminate':
+        case 'agent_terminate': {
           const agentToTerminate = agents.get(args.agentId);
           if (!agentToTerminate) {
             throw new Error(`Agent ${args.agentId} not found`);
@@ -249,74 +299,97 @@ async function main() {
           logAudit('terminate', { agentId: args.agentId, reason: 'manual' });
 
           return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify({
-                  agentId: args.agentId,
-                  status: 'terminated',
-                  message: `Agent terminated: ${agentToTerminate.name}`
-                }, null, 2)
-              }
-            ]
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                agentId: args.agentId,
+                status: 'terminated',
+                message: `Agent terminated: ${agentToTerminate.name}`
+              }, null, 2)
+            }]
           };
+        }
 
-        case 'agent_list':
+        case 'agent_list': {
           const agentList = Array.from(agents.values()).map(a => ({
             id: a.id,
             name: a.name,
             role: a.role,
             status: a.status,
+            task: a.task,
             spawnedAt: a.spawnedAt,
             lastActive: new Date(a.lastActive).toISOString()
           }));
-          
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify({
-                  count: agents.size,
-                  agents: agentList
-                }, null, 2)
-              }
-            ]
-          };
 
-        case 'agent_pool_status':
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                count: agents.size,
+                agents: agentList
+              }, null, 2)
+            }]
+          };
+        }
+
+        case 'agent_pool_status': {
           cleanupIdleAgents();
           const byRole = {};
           for (const agent of agents.values()) {
             byRole[agent.role] = (byRole[agent.role] || 0) + 1;
           }
-          
+
           return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify({
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                count: agents.size,
                   total: agents.size,
-                  poolMax: CONFIG.POOL_MAX_SIZE,
-                  byRole,
-                  utilization: agents.size / CONFIG.POOL_MAX_SIZE,
-                  metrics,
-                  timestamp: new Date().toISOString()
-                }, null, 2)
-              }
-            ]
+                poolMax: CONFIG.POOL_MAX_SIZE,
+                available: CONFIG.POOL_MAX_SIZE - agents.size,
+                byRole,
+                utilization: `${Math.round((agents.size / CONFIG.POOL_MAX_SIZE) * 100)}%`,
+                metrics,
+                timestamp: new Date().toISOString()
+              }, null, 2)
+            }]
           };
+        }
+
+        // FIX #2: Implementasi agent_heartbeat
+        case 'agent_heartbeat': {
+          const agentToUpdate = agents.get(args.agentId);
+          if (!agentToUpdate) {
+            throw new Error(`Agent ${args.agentId} not found`);
+          }
+          agentToUpdate.lastActive = Date.now();
+          agentToUpdate.status = args.status || 'active';
+          agents.set(args.agentId, agentToUpdate);
+          saveState();
+
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                agentId: args.agentId,
+                name: agentToUpdate.name,
+                status: agentToUpdate.status,
+                lastActive: new Date(agentToUpdate.lastActive).toISOString(),
+                message: `Heartbeat updated for ${agentToUpdate.name}`
+              }, null, 2)
+            }]
+          };
+        }
 
         default:
           throw new Error(`Unknown tool: ${name}`);
       }
     } catch (error) {
       return {
-        content: [
-          {
-            type: 'text',
-            text: `Error: ${error.message}`
-          }
-        ],
+        content: [{
+          type: 'text',
+          text: `Error: ${error.message}`
+        }],
         isError: true
       };
     }
@@ -329,8 +402,8 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  console.error('[AgentManager] Server started');
-  
+  console.error('[AgentManager] Server v1.1.0 started');
+
   // Handle shutdown
   process.on('SIGTERM', async () => {
     console.log('[AgentManager] Shutting down...');

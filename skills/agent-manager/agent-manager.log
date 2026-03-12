@@ -1,1 +1,8 @@
 [NameGenerator] Loaded custom Indonesian names
+[AgentManager] Config loaded from config.yaml
+[AgentManager] Loaded 3 agents from persistent storage
+[AgentManager] Server v1.1.0 started
+[AgentManager] Cleaned up 1 idle agents
+[AgentManager] Cleaned up 1 idle agents
+[AgentManager] Cleaned up 1 idle agents
+[AgentManager] Shutting down...

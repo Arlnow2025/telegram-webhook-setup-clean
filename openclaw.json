@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.8",
+    "lastTouchedAt": "2026-03-11T20:48:02.589Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-05T23:44:29.326Z",
+    "lastRunVersion": "2026.3.2",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "custom-ai-sumopod-com": {
+        "baseUrl": "https://ai.sumopod.com/v1",
+        "apiKey": "sk-E0gLNs3tMSp6__xYNKup2w",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2",
+            "name": "kimi-k2 (Custom Provider)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 224000,
+            "maxTokens": 4096
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/auto",
+        "fallbacks": [
+          "openrouter/auto",
+          "openrouter/openrouter/free",
+          "custom-ai-sumopod-com/kimi-k2"
+        ]
+      },
+      "models": {
+        "openrouter/auto": {
+          "alias": "OpenRouter"
+        },
+        "openrouter/openrouter/free": {},
+        "openrouter/openrouter/auto": {},
+        "custom-ai-sumopod-com/kimi-k2": {
+          "alias": "kimi-k2"
+        }
+      },
+      "workspace": "/root/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": false
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "sandbox": {
+        "mode": "off"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "model": "openrouter/openrouter/free"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off"
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "session-memory": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "boot-md": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "botToken": "8517356401:AAHoEUDM75bn4klXxSF2gyeSZEt43f4c4MU",
+      "allowFrom": [
+        6350718807
+      ],
+      "groupPolicy": "open",
+      "streaming": "partial",
+      "webhookUrl": "https://server-openclaw.my.id/telegram-webhook",
+      "webhookSecret": "openclaw-webhook-secret-2026",
+      "webhookPath": "/telegram-webhook",
+      "webhookPort": 8787
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "https://server-openclaw.my.id"
+      ],
+      "dangerouslyDisableDeviceAuth": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "0c9410adf799e164b0e79fc19f75a8aa7473910e34cfc4b1"
+    },
+    "trustedProxies": [
+      "127.0.0.1"
+    ],
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "telegram",
+      "openclaw-mcp-adapter"
+    ],
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "openclaw-mcp-adapter": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "openclaw-mcp-adapter": {
+        "source": "npm",
+        "spec": "openclaw-mcp-adapter@0.1.1",
+        "installPath": "/root/.openclaw/extensions/openclaw-mcp-adapter",
+        "version": "0.1.1",
+        "resolvedName": "openclaw-mcp-adapter",
+        "resolvedVersion": "0.1.1",
+        "resolvedSpec": "openclaw-mcp-adapter@0.1.1",
+        "integrity": "sha256-HqNPiC14f3KoYWIAz/6jB0a7M3kM3+BwtfAxwAoaWbZCBNcM6P5GB0IqzIHaeaBlJYeezHinQj431GN8c2IRbg==",
+        "shasum": "f196c78d966b149b121407cbc14b29da0a8428d9",
+        "resolvedAt": "2026-03-05T02:20:06.172Z",
+        "installedAt": "2026-03-05T02:20:28.910Z"
+      }
+    }
+  }
+}
