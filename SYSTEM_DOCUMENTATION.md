@@ -16,10 +16,10 @@
 
 ## System Overview
 
-**Project:** OpenClaw Agent Manager with Fixed 10-Agent Pool  
-**Version:** v1.2.0  
-**Status:** Production Ready  
-**Last Updated:** 2026-03-12  
+**Project:** OpenClaw Agent Manager with Fixed 10-Agent Pool
+**Version:** v1.2.0
+**Status:** Production Ready
+**Last Updated:** 2026-03-12
 
 ### Key Features
 - ✅ Fixed 10-agent pool with deterministic Indonesian names
@@ -377,23 +377,23 @@ systemctl restart queue-worker
 ## Troubleshooting
 
 ### Issue: Job stuck in pending/
-**Cause:** Queue worker not polling or file format invalid  
+**Cause:** Queue worker not polling or file format invalid
 **Fix:** Check queue worker logs, ensure YAML format correct
 
 ### Issue: Agent not spawning
-**Cause:** Pool full or agent timeout not cleared  
+**Cause:** Pool full or agent timeout not cleared
 **Fix:** Wait for auto-termination or manually terminate idle agents
 
 ### Issue: High memory usage
-**Cause:** Zombie processes or stuck agents  
+**Cause:** Zombie processes or stuck agents
 **Fix:** Restart queue worker to cleanup
 
 ### Issue: 402 OpenRouter error
-**Cause:** Paid keys exceeded limit  
+**Cause:** Paid keys exceeded limit
 **Fix:** Already fixed - using free tier. If happens again, check `openclaw.json` primary model
 
 ### Issue: agents.json empty
-**Cause:** Normal - agents.json cleared after termination; metrics.json is source of truth  
+**Cause:** Normal - agents.json cleared after termination; metrics.json is source of truth
 **Fix:** No action needed; check metrics.json for spawnCount/terminateCount
 
 ---
@@ -448,9 +448,40 @@ status: pending' > /root/.openclaw/queue/pending/test-$(date +%s).yaml
 
 ---
 
-**Document Version:** 1.2.0  
-**Last Updated:** 2026-03-12  
+**Document Version:** 1.2.1
+**Last Updated:** 2026-03-13
 **Status:** Production Ready ✅
+
+---
+
+## 📊 Production Monitoring
+
+### Automated Health Checks
+- **Gateway Health:** Every 5 minutes via cron
+  ```bash
+  */5 * * * * curl -sf http://localhost:18789/health > /dev/null || echo 'Gateway down' | systemd-cat -t openclaw-health
+  ```
+- **Disk Space:** Every 10 minutes
+  ```bash
+  */10 * * * * df / | awk 'NR==2{if($5+0 > 90) print "Disk usage "$5" exceeds 90%" | systemd-cat -t openclaw-disk}'
+  ```
+- **Log Rotation:** Daily rotation with 30-day retention
+
+### Systemd Auto-Recovery
+| Service | Restart Policy | Enabled |
+|---------|----------------|---------|
+| queue-worker | always | ✅ |
+| openclaw-gateway | always | ✅ |
+
+### Alerting
+- Health check failures logged to systemd journal with tag `openclaw-health`
+- Disk warnings logged with tag `openclaw-disk`
+- View alerts: `journalctl -t openclaw-health` / `journalctl -t openclaw-disk`
+
+### Metrics Collection
+- Agent pool metrics: `metrics.json` (spawnCount, terminateCount)
+- System resources: CPU, Memory, Disk (visible in queue-worker logs)
+- Job completion: recorded in `completed/` directory
 
 ---
 
