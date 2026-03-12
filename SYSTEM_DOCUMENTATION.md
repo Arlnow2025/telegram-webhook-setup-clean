@@ -478,6 +478,14 @@ status: pending' > /root/.openclaw/queue/pending/test-$(date +%s).yaml
 - Disk warnings logged with tag `openclaw-disk`
 - View alerts: `journalctl -t openclaw-health` / `journalctl -t openclaw-disk`
 
+### Enhanced Monitoring
+- **Disk Cleanup:** Auto-clean old logs/queue files when >90% disk usage
+  ```bash
+  */10 * * * * /usr/local/bin/disk-cleanup.sh 2>&1 | systemd-cat -t openclaw-disk-cleanup
+  ```
+- **Log Rotation:** Daily rotation with 30-day retention
+- **Backup:** Weekly + daily metrics backup to `/backup/`
+
 ### Metrics Collection
 - Agent pool metrics: `metrics.json` (spawnCount, terminateCount)
 - System resources: CPU, Memory, Disk (visible in queue-worker logs)
