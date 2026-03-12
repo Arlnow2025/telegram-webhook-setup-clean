@@ -21,7 +21,7 @@ const mcporter = {
         console.log(`[MCP] Attempt ${attempt}: ${cmd}`);
         const out = execSync(cmd, {
           encoding: 'utf8',
-          timeout: 60000,
+          timeout: 30000,
           maxBuffer: 10 * 1024 * 1024
         }).trim();
         
@@ -89,7 +89,7 @@ class QueueWorker {
     // Set up interval for periodic checks
     this.intervalId = setInterval(() => {
       this.checkQueue().catch(console.error);
-    }, 60000); // Check every 60 seconds
+    }, 30000); // Check every 60 seconds
 
     console.log('✅ Queue Worker started successfully');
   }
@@ -415,6 +415,15 @@ class QueueWorker {
     if (!result.id) result.id = uuidv4();
     if (!result.status) result.status = 'pending';
     if (!result.scheduled) result.scheduled = new Date().toISOString();
+    
+    // Normalize: if task exists but no command, convert task to command
+    if (result.task && (!result.command || result.command.length === 0)) {
+      result.command = [result.task];
+    }
+    // Ensure command exists
+    if (!result.command || result.command.length === 0) {
+      result.command = ['echo', 'No command specified'];
+    }
     
     return result;
   }
