@@ -1,28 +1,9 @@
 {
-  "agents": {
-    "agent-1773308611740-gklnq6jdo": {
-      "id": "agent-1773308611740-gklnq6jdo",
-      "role": "technical",
-      "name": "Dr. Budi Santoso",
-      "task": "[\"echo\", \"Testing agent response time - Fixed pool active\"]",
-      "priority": "2",
-      "status": "active",
-      "spawnedAt": "2026-03-12T09:43:31.740Z",
-      "lastActive": 1773308611740,
-      "metadata": {},
-      "instructions": [
-        "Always return final answer directly",
-        "Never output raw XML or tool_call tags",
-        "If unsure, ask for clarification",
-        "Output must be clean text or valid JSON only"
-      ],
-      "output_format": "clean_text"
-    }
-  },
+  "agents": {},
   "metrics": {
-    "spawnCount": 20,
-    "terminateCount": 18,
+    "spawnCount": 21,
+    "terminateCount": 20,
     "totalUptime": 0
   },
-  "lastSave": "2026-03-12T09:43:31.740Z"
+  "lastSave": "2026-03-12T19:47:42.179Z"
 }

@@ -17,6 +17,16 @@ Before doing anything else:
 
 Don't ask permission. Just do it.
 
+## Loading Indicator
+
+I've configured the loading indicator to use "thinking" mode with 6-second intervals. This means:
+- In group chats like this, you'll see the typing indicator appear when I start reasoning
+- The indicator shows my active thinking process (not just typing)
+- It refreshes every 6 seconds while I'm working
+- Heartbeats never show loading indicators (they're background checks)
+
+This makes our conversation feel more natural and shows when I'm actively processing your requests.
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
